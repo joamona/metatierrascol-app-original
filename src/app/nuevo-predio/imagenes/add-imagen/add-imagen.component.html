@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Añadir imagen</h1>
+
+  <form>
+    <mat-form-field class="custom-input">
+      <mat-label>Tipo de imagen:</mat-label>
+      <mat-select [(ngModel)]="tipo_doc" name="tipo_doc">
+        @for (tipo of array_tipo_doc; track tipo) {
+          <mat-option [value]="tipo">{{tipo}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="custom-input">
+      <textarea matInput placeholder="Notas" [(ngModel)]="notas" name="notas"></textarea>
+    </mat-form-field>
+  </form>
+
+  @if (imagenCapturada) {
+    <div>
+      <img [src]="imagenCapturada" alt="Imagen Capturada" style="max-width: 100%;">
+    </div>
+  }
+  <button mat-raised-button class="custom-button" (click)="takePhoto()">Tomar imagen</button>
+  <button mat-raised-button class="custom-button" (click)="guardarImagen()">Guardar</button>
+  <button mat-raised-button class="custom-button" routerLink='../'>Atrás</button>
+</div>

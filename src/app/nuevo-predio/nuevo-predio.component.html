@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Añadir Predio</h1>
+  <button mat-raised-button  routerLink='datos-propietario'>Datos de Interesados <span class="badge">{{ numeroPropietarios }}</span></button>
+  <button mat-raised-button  routerLink="datos-predio">Datos del Predio <span class="badge">{{ numeroDatosPredio }}</span></button>
+  <button mat-raised-button  routerLink='medir-gps'>Comenzar a Medir con el GPS </button>
+  <button mat-raised-button  routerLink="imagenes">Imágenes <span class="badge">{{ numeroImagenes }}</span></button>
+  <button mat-raised-button  routerLink="documentos">Documentos <span class="badge">{{ numeroDocumentos }}</span></button>
+  <button mat-raised-button  routerLink='digitalizar'>Digitalizar en el Mapa</button>
+  <button mat-raised-button  routerLink='seleccionar-geometria'>Seleccionar Geometría desde archivo</button>
+  <button mat-raised-button (click)="borrarGeometrias()" >Borrar Geometría</button>
+  <button mat-raised-button  (click)="guardarPredio()" >Guardar Predio</button>
+  <button mat-raised-button [disabled]="!puedeEnviar" (click)="enviarAlServidor()">Enviar al Servidor</button>
+  <button mat-raised-button  routerLink='../../main'>Atrás</button>
+</div>

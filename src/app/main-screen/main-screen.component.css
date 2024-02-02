@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+/*
+button {
+  width: 80%;
+  height: 50px;
+  margin: 10px;
+  background-color: #256ec5;
+  color: #fff;
+}
+*/
+.counter {
+  width: 80%;
+  height: 50px;
+  margin-top: 20px;
+  background-color: #5e97dc;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,158 @@
+<div class="container">
+  <h1>{{ titulo}}</h1>
+  <form [formGroup]="editarFormulario" (ngSubmit)="guardarPropietario()">
+
+    <!-- Tipo de Documento -->
+    <mat-form-field class="custom-input">
+      <mat-label>Tipo de Documento</mat-label>
+      <mat-select formControlName="tipoDocumento">
+        @for (tipoDoc of array_CR_DocumentoTipo; track tipoDoc) {
+          <mat-option [value]="tipoDoc">{{tipoDoc}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+
+    <!-- Documento de Identidad -->
+    <mat-form-field class="custom-input">
+      <mat-label>Documento Identidad</mat-label>
+      <input matInput  formControlName="documentoIdentidad">
+      @if (editarFormulario.get('documentoIdentidad')?.invalid) {
+        <mat-error>
+          Documento de Identidad es obligatorio.
+        </mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field class="custom-input required-field">
+      <mat-label>Tipo de Persona</mat-label>
+      <mat-select formControlName="tipo">
+        @for (tipo of array_CR_InteresadoTipo; track tipo) {
+          <mat-option [value]="tipo">{{tipo}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Primer Nombre -->
+    <mat-form-field class="custom-input required-field">
+      <mat-label>Primer Nombre</mat-label>
+      <input matInput formControlName="primerNombre">
+      @if(editarFormulario.get('primerNombre')?.invalid){
+        <mat-error>
+          Primer Nombre es obligatorio.
+        </mat-error>
+      }
+    </mat-form-field>
+
+    <!-- Segundo Nombre -->
+    <mat-form-field class="custom-input">
+      <mat-label>Segundo Nombre</mat-label>
+      <input matInput formControlName="segundoNombre">
+    </mat-form-field>
+
+    <!-- Apellidos -->
+    <mat-form-field class="custom-input required-field">
+      <mat-label>Primer Apellido</mat-label>
+      <input matInput formControlName="primerApellido">
+      @if(editarFormulario.get('primerApellido')?.invalid){
+        <mat-error>
+          Primer Apellido es obligatorio.
+        </mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field class="custom-input">
+      <mat-label>Segundo Apellido</mat-label>
+      <input matInput formControlName="segundoApellido">
+    </mat-form-field>
+
+    <!-- Sexo -->
+    <mat-form-field class="custom-input required-field">
+      <mat-label>Sexo</mat-label>
+      <mat-select formControlName="sexo">
+        @for (sexo of array_CR_SexoTipo; track sexo) {
+          <mat-option [value]="sexo">{{sexo}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+
+    <!-- Grupo Étnico -->
+    <mat-form-field class="custom-input">
+      <mat-label>Grupo Étnico</mat-label>
+      <mat-select formControlName="grupoEtnico">
+        @for (grupo of array_Grupo_Etnico; track grupo) {
+          <mat-option [value]="grupo">{{grupo}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="custom-input">
+      <mat-label>Teléfono</mat-label>
+      <input matInput type="tel" formControlName="telefono1">
+    </mat-form-field>
+
+    <mat-form-field class="custom-input required-field">
+      <mat-label>Correo Electrónico</mat-label>
+      <input matInput type="email"  formControlName="correoElectronico">
+      @if(editarFormulario.get('correoElectronico')?.invalid) {
+        <mat-error>
+          Correo Electrónico no es válido.
+        </mat-error>
+      }
+    </mat-form-field>
+
+
+
+    <mat-form-field class="custom-input required-field">
+      <mat-label>Departamento</mat-label>
+      <mat-select formControlName="departamentoSeleccionado" (selectionChange)="onDepartamentoChange()">
+        @for (depto of departamentos; track depto) {
+          <mat-option [value]="depto.departamento">{{depto.departamento}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="custom-input required-field">
+      <mat-label>Municipio</mat-label>
+      <mat-select formControlName="municipioSeleccionado">
+        @for (mun of municipiosFiltrados; track mun) {
+          <mat-option [value]="mun.nombre_municipio">{{mun.nombre_municipio}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field class="custom-input required-field">
+      <mat-label>% Propiedad</mat-label>
+      <input matInput type="number" formControlName="porcentajePropiedad" min="1" max="100">
+      @if (editarFormulario.get('porcentajePropiedad')?.invalid) {
+        <mat-error>
+          % Propiedad debe ser un número entre 1 y 100.
+        </mat-error>
+      }
+    </mat-form-field>
+
+    <mat-radio-group formControlName="estado">
+      <mat-radio-button value="Casado">Casado</mat-radio-button>
+      <mat-radio-button value="Soltero">Soltero</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-form-field class="custom-input">
+      <mat-label>Notas</mat-label>
+      <textarea matInput placeholder="Notas" formControlName="notas"></textarea>
+    </mat-form-field>
+
+    <mat-checkbox formControlName="autorizaProcesamientoDatosPersonales" class="required-field">
+      Autoriza procesamiento de datos personales
+    </mat-checkbox>
+
+    <mat-checkbox formControlName="autorizaNotificacionCorreo" class="required-field">
+      Autoriza notificación por correo
+    </mat-checkbox>
+
+    <button mat-raised-button type="submit" [disabled]="!editarFormulario.valid" (click)="guardarPropietario()">Guardar</button>
+    <button mat-raised-button  (click)="eliminarPropietario()">Eliminar</button>
+    <button mat-raised-button  routerLink='../../'>Atrás</button>
+  </form>
+</div>

@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #f0f0f0;
+}
+
+button[disabled]  {
+  background-color: grey !important;
+  color: darkgray !important;
+  cursor: not-allowed !important;
+}

@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Añadir/Editar imágenes</h1>
+  <p>Imágenes actuales.
+    Click para editar.
+  </p>
+  <div class="list">
+    @for (imagen of imagenes; let i = $index; track imagen.tipo_doc) {
+      <div class="list-item" (click)="editarImagen(i)">{{i + 1}} - {{imagen.tipo_doc}}</div>
+    }
+  </div>
+
+  <button mat-raised-button routerLink='add-imagen'>Añadir imagen</button>
+  <button mat-raised-button routerLink='../'>Atrás</button>
+</div>

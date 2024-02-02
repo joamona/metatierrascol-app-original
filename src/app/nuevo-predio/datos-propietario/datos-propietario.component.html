@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Añadir/Editar interesados</h1>
+  <p>Interesados actuales.
+  Click sobre el interesados para editarlo
+  </p>
+  <div class="list">
+    <!--@for (propietario of propietarios; track propietario.documentoIdentidad) {
+      <div class="list-item" (click)="editarPropietario(propietario.documentoIdentidad)">{{propietario.documentoIdentidad}}</div>
+    }-->
+    @if (propietarios && propietarios.length > 0) {
+      @for (propietario of propietarios; track propietario.documentoIdentidad) {
+        <div class="list-item" (click)="editarPropietario(propietario.documentoIdentidad)">{{propietario.documentoIdentidad}}</div>
+      }
+    } @else {
+      <p>No hay propietarios para este predio.</p>
+    }
+  </div>
+
+  <button mat-raised-button routerLink='add-propietario'>Añadir interesados</button>
+  <button mat-raised-button routerLink='../'>Atrás</button>
+</div>

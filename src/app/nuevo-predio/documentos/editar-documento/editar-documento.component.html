@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>Editar documento</h1>
+
+  <form [formGroup]="documentoForm" (ngSubmit)="guardarDocumento()">
+    <mat-form-field class="custom-input">
+      <mat-label>Tipo de documento:</mat-label>
+      <mat-select [(ngModel)]="documento.tipo_doc" name="tipo_doc">
+        @for (tipo of array_tipo_doc; track tipo) {
+          <mat-option [value]="tipo">{{tipo}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="custom-input">
+      <textarea matInput placeholder="Notas" [(ngModel)]="documento.notas" name="notas"></textarea>
+    </mat-form-field>
+
+    <!-- Input para PDFs -->
+    <input type="file" (change)="onPDFsSelected($event)" multiple accept="application/pdf">
+
+    <div class="imagenes-container">
+      @for (imagen of listaImagenes; track imagen) {
+        <div class="imagen-wrapper">
+          <img [src]="imagen.ruta" class="imagen-preview" alt="Imagen Capturada">
+          <button type="button" class="eliminar-imagen" (click)="eliminarImagen(imagen.id)">Eliminar</button>
+        </div>
+      }
+    </div>
+
+    <button mat-raised-button type="button" (click)="takePhoto()">Tomar Foto</button>
+    <button mat-raised-button class="custom-button" type="submit">Guardar</button>
+    <button mat-raised-button class="custom-button" >Eliminar</button>
+    <button mat-raised-button class="custom-button" routerLink='../../'>Atrás</button>
+  </form>
+
+
+</div>

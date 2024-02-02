@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Añadir/Editar documentos</h1>
+  <p>Documentos actuales.
+    Click sobre el documento para editarlo
+  </p>
+  <div class="list">
+    @for (documento of documentos; let i = $index; track documento.tipo_doc) {
+      <div class="list-item" (click)="editarDocumento(i)">{{i + 1 }} - {{documento.tipo_doc}}</div>
+    }
+  </div>
+
+  <button mat-raised-button routerLink='add-documento'>Añadir documento</button>
+  <button mat-raised-button routerLink='../'>Atrás</button>
+</div>

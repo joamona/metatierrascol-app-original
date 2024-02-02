@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MetaTierras Colombia</string>
+    <string name="title_activity_main">MetaTierras Colombia</string>
+    <string name="package_name">com.landsurvey.app</string>
+    <string name="custom_url_scheme">com.landsurvey.app</string>
+</resources>

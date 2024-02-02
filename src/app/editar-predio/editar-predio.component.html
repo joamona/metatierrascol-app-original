@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>{{ titulo}}</h1>
+  <h2>Seleccione el predio a editar sobre el mapa</h2>
+
+  <div id="contenedorMapa">
+    <app-mapa>
+    </app-mapa>
+  </div>
+
+
+  <div class="button-container">
+    <button mat-raised-button (click)="editarVertices()">Editar Vertices</button>
+    <button mat-raised-button (click)="editarDatos()">Editar Datos</button>
+    <button mat-raised-button (click)="borrar()">Borrar</button>
+    <button mat-raised-button routerLink="../../editar-predio-lista">Atrás</button>
+  </div>
+</div>

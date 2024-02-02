@@ -1,0 +1,27 @@
+<div id="container">
+  <div id="cabecera">
+    <h1>Digitalizar en el mapa</h1>
+    <p>Marque los puntos sobre el mapa</p>
+  </div>
+
+  <div id="dibujar">
+    <button mat-button [matMenuTriggerFor]="drawMenu" class="option-buttons">Dibujar</button>
+    <mat-menu #drawMenu="matMenu" >
+      <!--<button mat-menu-item (click)="mapDraw.enableDrawPoints()">Punto</button>
+      <button mat-menu-item (click)="mapDraw.enableDrawLine()">Distancia</button>-->
+      <button mat-menu-item (click)="mapDraw.enableDrawPolygons()">Polígono</button>
+    </mat-menu>
+    <button mat-button class="option-buttons" (click)="mapDraw.disableDrawings()">Parar dibujo</button>
+  </div>
+
+  <div id="contenedorMapa">
+    <app-mapa>
+    </app-mapa>
+  </div>
+
+  <div class="button-container">
+    <button mat-raised-button (click)="limpiarMapaYPredio()">Comenzar de nuevo</button>
+    <button mat-raised-button (click)="finalizar()">Finalizar</button>
+    <button mat-raised-button routerLink="../">Atrás</button>
+  </div>
+</div>

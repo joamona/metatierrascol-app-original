@@ -1,0 +1,114 @@
+<div class="container">
+  <h1>{{ titulo }}</h1>
+
+  <form [formGroup]="datosPredioForm" (ngSubmit)="guardarDatos()">
+    <!-- Nombre del Predio -->
+    <mat-form-field class="custom-input">
+      <mat-label>Nombre del Predio</mat-label>
+      <input matInput formControlName="nombre">
+      @if(datosPredioForm.get('nombre')?.invalid){
+        <mat-error>
+          Nombre del predio es obligatorio.
+        </mat-error>
+      }
+    </mat-form-field>
+
+    <!-- Departamento -->
+    <mat-form-field class="custom-input">
+      <mat-label>Departamento</mat-label>
+      <mat-select formControlName="departamentoSeleccionado" (selectionChange)="onDepartamentoChange()">
+        @for (depto of departamentos | alphabeticalOrder:'departamento'; track depto) {
+          <mat-option [value]="depto.departamento">
+            {{ depto.departamento }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Provincia -->
+    <mat-form-field class="custom-input">
+      <mat-label>Región</mat-label>
+      <mat-select formControlName="provinciaSeleccionada">
+        @for (prov of provinciasFiltradas | alphabeticalOrder:'provincia'; track prov) {
+          <mat-option [value]="prov.provincia">
+            {{ prov.provincia }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Sector del Predio -->
+    <mat-form-field class="custom-input">
+      <mat-label>Sector</mat-label>
+      <mat-select formControlName="sectorPredio">
+        <mat-option value="Norte">Norte</mat-option>
+        <mat-option value="Sur">Sur</mat-option>
+        <mat-option value="Este">Este</mat-option>
+        <mat-option value="Oeste">Oeste</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Municipio -->
+    <mat-form-field class="custom-input">
+      <mat-label>Municipio</mat-label>
+      <mat-select formControlName="municipioSeleccionado">
+        @for (mun of municipiosFiltrados | alphabeticalOrder:'nombre_municipio'; track mun) {
+          <mat-option [value]="mun.codigo_municipio">
+            {{ mun.nombre_municipio }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Vereda -->
+    <mat-form-field class="custom-input">
+      <mat-label>Vereda</mat-label>
+      <input matInput formControlName="vereda">
+    </mat-form-field>
+
+    <!-- Número Predial -->
+    <mat-form-field class="custom-input">
+      <mat-label>Número Predial</mat-label>
+      <input matInput formControlName="numeroPredial">
+    </mat-form-field>
+
+    <!-- Número catastral -->
+    <mat-form-field class="custom-input">
+      <mat-label>Número catastral</mat-label>
+      <input matInput formControlName="numero_catastral">
+    </mat-form-field>
+
+    <!-- Longitud -->
+    <mat-form-field class="custom-input">
+      <mat-label>Coordenadas: Longitud</mat-label>
+      <input matInput formControlName="longitud">
+    </mat-form-field>
+
+    <!-- Latitud -->
+    <mat-form-field class="custom-input">
+      <mat-label>Coordenadas: Latitud</mat-label>
+      <input matInput formControlName="latitud">
+    </mat-form-field>
+    
+    <!-- Tipo del Predio -->
+    <mat-form-field class="custom-input">
+      <mat-label>Tipo del Predio</mat-label>
+      <mat-select formControlName="tipo">
+        @for (tipo of array_LC_PredioTipo; track tipo) {
+          <mat-option [value]="tipo">
+            {{ tipo }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Complemento -->
+    <mat-form-field class="custom-input">
+      <mat-label>Complemento</mat-label>
+      <textarea matInput formControlName="complemento"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button type="submit" [disabled]="!datosPredioForm.valid">Guardar</button>
+    <button mat-raised-button routerLink='../'>Atrás</button>
+  </form>
+</div>
