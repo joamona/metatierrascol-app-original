@@ -10,6 +10,11 @@ Este repositorio contiene parte de la implementación del diseño de una aplicac
 
 Esta aplicación guarda los datos capturado en el móvil hasta que se envían a un servidor para ser estudiados por expertos. La implementación de la API e el servidor se puede encontrar en <a href="https://github.com/joamona/metatierrascol-api">código fuente de la API</a>.
 
+# Desarrolladores de la app
+
+    Diego Terevinto Charquero
+    Gaspar Mora-Navarro
+
 # Detalles técnicos de la implementación
 
 La app ha sido realizada con Angular 17 + Capacitor.
