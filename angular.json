@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "LandSurvey": {
+    "MetaTierrasCol": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/land-survey",
+            "outputPath": "dist/metatierrascol",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "LandSurvey:build:production"
+              "buildTarget": "MetaTierrasCol:build:production"
             },
             "development": {
-              "buildTarget": "LandSurvey:build:development"
+              "buildTarget": "MetaTierrasCol:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "LandSurvey:build"
+            "buildTarget": "MetaTierrasCol:build"
           }
         },
         "test": {

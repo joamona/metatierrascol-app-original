@@ -1,27 +1,5 @@
-/*Estilos globales*/
 
-
-html { height: 100%; }
-
-body {
-  display: grid;
-  margin: 0 auto;
-  max-width: 600px;
-  /*min-height: 100vh;*/
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-
-.main-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.main-content {
-  flex: 1;
-}
-
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .button-container {
   width: 100%;
@@ -44,7 +22,6 @@ button[mat-raised-button] {
   line-height: normal;
 }
 
-
 button[mat-raised-button]:active {
   background-color: #6c6c6c;
 }
@@ -58,6 +35,7 @@ button[mat-raised-button]:active {
   align-items: center;
   justify-content: center;
 }
+
 .list-item {
   width: 80%;
   background-color: #626262;
@@ -97,6 +75,7 @@ button[mat-raised-button]:active {
   border: 2px solid yellow;
   width: 80%;
 }
+
 .imagenes-container {
   display: flex;
   flex-wrap: wrap;

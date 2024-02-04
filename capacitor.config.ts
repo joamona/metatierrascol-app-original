@@ -1,9 +1,9 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.landsurvey.app',
+  appId: 'com.metatierrascol.app',
   appName: 'MetaTierras Colombia',
-  webDir: 'dist/land-survey',
+  webDir: 'dist/metatierrascol',
   server: {
     androidScheme: 'https'
   }

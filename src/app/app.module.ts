@@ -29,6 +29,7 @@ import { MedirGpsComponent } from "./nuevo-predio/medir-gps/medir-gps.component"
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MessagesComponent } from './messages/messages.component';
+import { SqliteComponent } from './components/sqlite/sqlite.component';
 
 @NgModule({
     declarations: [
@@ -42,6 +43,7 @@ import { MessagesComponent } from './messages/messages.component';
         HeaderComponent,
         FooterComponent,
         MessagesComponent,
+        SqliteComponent
     ],
     imports: [
         BrowserModule,
