@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 
 import { MessageService} from './message.service';
 import { Message} from '../models/message';
-import { manageServerErrors, showDRFerrorMessages } from '../utilities/manageMessages';
+import { manageServerErrors, sendMessages, showDRFerrorMessages } from '../utilities/manageMessages';
 
 interface ServerData {
   detail: string;
@@ -73,7 +73,14 @@ export class AuthService {
               this.setData(true,data.username,data.groups,this.token,this.urlDjangoApi);
             }),
             error: ((error: any)=>{
-              manageServerErrors(error,this.messageService,this.snackBar)
+              manageServerErrors(error,this.messageService,this.snackBar);
+              if (error.status == 401){
+                if (error.error.detail=="Invalid token."){
+                  this.borrarTokenDelAlmacen().then((r)=>{
+                    sendMessages('La sesión estaba caducada. Debe iniciar sesión',this.messageService,this.snackBar);
+                  });
+                }
+              }
             })
           });
   }
@@ -90,6 +97,11 @@ export class AuthService {
     await Preferences.remove({ key: 'urlDjangoApi' });
     await Preferences.remove({ key : 'token' });
     return 'Borrado'
+  }
+
+  async borrarTokenDelAlmacen() {
+    // Guardar configuración permanentemente
+    return await Preferences.remove({ key : 'token' });
   }
   // Cargar configuración y token desde el storage al servicio
   async cargarUrlyTokenDelAlmacen() {

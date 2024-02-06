@@ -6,14 +6,19 @@ import {CONFIG_OPENLAYERS} from "../../configuracion-openlayers";
 import Feature from 'ol/Feature.js';
 import {GeometriasService} from "../../services/GeometriasService";
 import Polygon from 'ol/geom/Polygon.js';
-import {Router} from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import Swal from 'sweetalert2';
+import { MapaComponent } from '../../mapa/mapa.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-digitalizar',
-  templateUrl: './digitalizar.component.html',
-  styleUrl: './digitalizar.component.css'
+    selector: 'app-digitalizar',
+    templateUrl: './digitalizar.component.html',
+    styleUrl: './digitalizar.component.css',
+    standalone: true,
+    imports: [MatButtonModule, MatMenuModule, MapaComponent, RouterLink]
 })
 export class DigitalizarComponent implements OnInit{
 

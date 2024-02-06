@@ -9,11 +9,17 @@ import {Imagen, LC_FuenteAdministrativaTipo} from "../../models/imagen.model";
 import {Coordenadas} from "../../models/geometria.model";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import Swal from "sweetalert2";
+import { RouterLink } from '@angular/router';
+import { MapaComponent } from '../../mapa/mapa.component';
+import { NgIf } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-medir-gps',
-  templateUrl: './medir-gps.component.html',
-  styleUrl: './medir-gps.component.css'
+    selector: 'app-medir-gps',
+    templateUrl: './medir-gps.component.html',
+    styleUrl: './medir-gps.component.css',
+    standalone: true,
+    imports: [MatButtonModule, NgIf, MapaComponent, RouterLink]
 })
 export class MedirGpsComponent {
 

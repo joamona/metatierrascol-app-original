@@ -1,16 +1,19 @@
 import {Component, signal} from '@angular/core';
 import {PredioService} from "../services/PredioService";
-import {Router} from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import {ApiService} from "../services/ApiService";
 import {Preferences} from "@capacitor/preferences";
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {HttpErrorResponse} from "@angular/common/http";
 import Swal from "sweetalert2";
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-main-screen',
-  templateUrl: './main-screen.component.html',
-  styleUrls: ['./main-screen.component.css']
+    selector: 'app-main-screen',
+    templateUrl: './main-screen.component.html',
+    styleUrls: ['./main-screen.component.css'],
+    standalone: true,
+    imports: [MatButtonModule, RouterLink]
 })
 export class MainScreenComponent {
   prediosMedidos = 0;

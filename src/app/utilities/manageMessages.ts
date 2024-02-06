@@ -1,4 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
+import { isDevMode } from '@angular/core';
+
 import { Message } from '../models/message';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -10,6 +12,7 @@ export function sendMessages(message:string, messageService: MessageService, sna
   if (!(snackBar === undefined)){
     snackBar.open(message, 'Cerrar', { duration: 3000, verticalPosition: 'bottom' });
   }
+  if (isDevMode()){console.log(message)}
 }
 
 export function manageServerErrors(error: HttpErrorResponse, messageService: MessageService, snackBar?: MatSnackBar){

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {PredioService} from "../services/PredioService";
-import {Router} from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import {ApiService} from "../services/ApiService";
 import {Predio} from "../models/predio.model";
 import {HttpErrorResponse} from "@angular/common/http";
@@ -8,10 +8,13 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {JWTTokenService} from "../services/jwtTokenService";
 import Swal from "sweetalert2";
 import {NetStatusService} from "../services/net-status.service";
+import { MatButtonModule } from '@angular/material/button';
 @Component({
-  selector: 'app-nuevo-predio',
-  templateUrl: './nuevo-predio.component.html',
-  styleUrl: './nuevo-predio.component.css'
+    selector: 'app-nuevo-predio',
+    templateUrl: './nuevo-predio.component.html',
+    styleUrl: './nuevo-predio.component.css',
+    standalone: true,
+    imports: [MatButtonModule, RouterLink]
 })
 export class NuevoPredioComponent {
 

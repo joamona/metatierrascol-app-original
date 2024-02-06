@@ -18,9 +18,10 @@ import Feature from "ol/Feature.js";
 import Polygon from "ol/geom/Polygon.js";
 import {DataService} from "../services/DataService";
 @Component({
-  selector: 'app-mapa',
-  templateUrl: './mapa.component.html',
-  styleUrls: ['./mapa.component.css']
+    selector: 'app-mapa',
+    templateUrl: './mapa.component.html',
+    styleUrls: ['./mapa.component.css'],
+    standalone: true
 })
 export class MapaComponent implements OnInit {
   selectedSRC: string = 'EPSG:4326';

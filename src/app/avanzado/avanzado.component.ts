@@ -65,7 +65,6 @@ export class AvanzadoComponent {
           })
         }),
         error: ((error)=>{
-          //console.log(error);
           manageServerErrors(error,this.messageService,this.snackBar);
         })
       });

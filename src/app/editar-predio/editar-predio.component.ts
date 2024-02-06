@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {GeometriasService} from "../services/GeometriasService";
 import {mapDraw} from "../mapa/mapDraw";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import {PredioService} from "../services/PredioService";
 import {CONFIG_OPENLAYERS} from "../configuracion-openlayers";
 import {Modify, Select} from "ol/interaction";
@@ -10,12 +10,15 @@ import Polygon from "ol/geom/Polygon";
 import { Router } from '@angular/router';
 import {Coordenadas} from "../models/geometria.model";
 import Swal from "sweetalert2";
-
+import { MatButtonModule } from '@angular/material/button';
+import { MapaComponent } from '../mapa/mapa.component';
 
 @Component({
-  selector: 'app-editar-predio',
-  templateUrl: './editar-predio.component.html',
-  styleUrl: './editar-predio.component.css'
+    selector: 'app-editar-predio',
+    templateUrl: './editar-predio.component.html',
+    styleUrl: './editar-predio.component.css',
+    standalone: true,
+    imports: [MapaComponent, MatButtonModule, RouterLink]
 })
 export class EditarPredioComponent implements OnInit{
 
